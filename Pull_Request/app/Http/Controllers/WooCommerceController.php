@@ -61,6 +61,50 @@ class WooCommerceController extends Controller
         echo "Done". $output;
     }
     
+    public function getRRPullRequests()
+    {
+        $n = 2;
+        $headers = [
+            "Accept:application/vnd.github+json", 
+            "User-Agent: GhadeerZahwe",
+            "authorization: Bearer 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"
+        ];
+        $filename = storage_path("app/2-review-required-pull-requests.txt");
+        
+        for ($i = 1; $i < $n; $i++) {
+            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
+    
+            $curl = curl_init($url);
+    
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    
+            // For debug only!
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+            $resp = curl_exec($curl);
+    
+            curl_close($curl);
+            $pull_requests = json_decode($resp, false);
+    
+            foreach ($pull_requests as $pull_request) {
+                if (!empty($pull_request->requested_reviewers) || !empty($pull_request->requested_teams)) {
+                    $output = $pull_request->number . " " . $pull_request->title . " " . $pull_request->created_at . "\n";
+                    // Append the output to the file
+                    file_put_contents($filename, $output, FILE_APPEND);
+                }
+            }
+    
+            if (count($pull_requests) === 100) {
+                ++$n;
+            }
+        }
+        echo "Done"." ". $output;
+
+    }
+    
+
 
  public function getSuccessPullRequests()
 {
