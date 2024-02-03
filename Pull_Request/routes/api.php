@@ -15,7 +15,13 @@ use App\Http\Controllers\WooCommerceController;
 |
 */
 
-Route::get('getAllrequests',[WooCommerceController::class,'getPullRequests']);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('getAllrequests',[WooCommerceController::class,'getRRPullRequests']);
+Route::get('get14DaysPullRequests',[WooCommerceController::class,'get14DaysPullRequests']);
+
+Route::get('getRRPullRequests',[WooCommerceController::class,'getRRPullRequests']);
+
+Route::get('getSuccessPullRequests',[WooCommerceController::class,'getSuccessPullRequests']);
+
+Route::get('getUnassignedPullRequests',[WooCommerceController::class,'getUnassignedPullRequests']);
+
+
