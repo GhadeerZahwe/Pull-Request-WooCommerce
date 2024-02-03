@@ -16,7 +16,7 @@ use App\Http\Controllers\WooCommerceController;
 */
 
 Route::get('getAllrequests',[WooCommerceController::class,'getRRPullRequests']);
-Route::get('get14DaysPullRequests',[WooCommerceController::class,'get14DaysPullRequests']);
+Route::get('getOldPullRequests',[WooCommerceController::class,'getOldPullRequests']);
 
 Route::get('getRRPullRequests',[WooCommerceController::class,'getRRPullRequests']);
 
