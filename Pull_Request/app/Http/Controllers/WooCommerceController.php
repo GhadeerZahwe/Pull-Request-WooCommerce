@@ -8,9 +8,6 @@ ini_set('max_execution_time', '300');
 
 class WooCommerceController extends Controller
 {
-
-    
-
     public function getOldPullRequests()
     {
         $n = 2;
@@ -55,7 +52,7 @@ class WooCommerceController extends Controller
                 echo "Error fetching pull requests.\n";
             }
         }
-        echo "Done". $output;
+        echo "Done";
     }
     
     public function getRRPullRequests()
@@ -95,7 +92,7 @@ class WooCommerceController extends Controller
                 ++$n;
             }
         }
-        echo "Done"." ". $output;
+        echo "Done";
 
     }
     
@@ -160,7 +157,7 @@ class WooCommerceController extends Controller
                 ++$n;
             }
         }
-        echo $output;
+        echo "Done";
     }
     
     public function getUnassignedPullRequests()
@@ -203,7 +200,7 @@ class WooCommerceController extends Controller
             ++$n;
         }
     }
-    echo $output;
+    echo "Done";
 
 }
 
