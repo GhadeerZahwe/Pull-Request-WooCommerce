@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 ini_set('max_execution_time', '300');
 
@@ -20,7 +20,7 @@ class WooCommerceController extends Controller
         $headers = [
             "Accept:application/vnd.github+json", 
             "User-Agent: GhadeerZahwe",
-            "authorization: Bearer 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"
+            "authorization: Bearer " . env("TOKEN")
         ];
         $filename = storage_path("app/1-old-pull-requests.txt");
         for ($i = 1; $i < $n; $i++) {
@@ -64,7 +64,7 @@ class WooCommerceController extends Controller
         $headers = [
             "Accept:application/vnd.github+json", 
             "User-Agent: GhadeerZahwe",
-            "authorization: Bearer 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"
+            "authorization: Bearer " . env("TOKEN")
         ];
         $filename = storage_path("app/2-review-required-pull-requests.txt");
         
@@ -104,7 +104,7 @@ class WooCommerceController extends Controller
         $headers = [
             "Accept:application/vnd.github+json",
             "User-Agent: GhadeerZahwe",
-            "authorization: Bearer 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"
+            "authorization: Bearer " . env("TOKEN")
         ];
         $n = 2;
     
@@ -168,7 +168,7 @@ class WooCommerceController extends Controller
     $headers = [
         "Accept:application/vnd.github+json",
         "User-Agent: GhadeerZahwe",
-        "authorization: Bearer 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"
+        "authorization: Bearer " . env("TOKEN")
     ];
     $n = 2;
 
