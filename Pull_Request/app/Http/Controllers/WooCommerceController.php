@@ -21,9 +21,8 @@ class WooCommerceController extends Controller
         ];
         $filename = storage_path("app/1-old-pull-requests.txt");
         for ($i = 1; $i < $n; $i++) {
-    
-            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
-    
+            
+            $url = env("BASE_URL") . $i;    
             $curl = curl_init($url);
     
             curl_setopt($curl, CURLOPT_URL, $url);
@@ -66,7 +65,7 @@ class WooCommerceController extends Controller
         $filename = storage_path("app/2-review-required-pull-requests.txt");
         
         for ($i = 1; $i < $n; $i++) {
-            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
+            $url = env("BASE_URL") . $i;    
     
             $curl = curl_init($url);
     
@@ -109,7 +108,7 @@ class WooCommerceController extends Controller
     
         for ($i = 1; $i < $n; $i++) {
             
-            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
+            $url = env("BASE_URL") . $i;    
     
             $curl = curl_init($url);
     
@@ -172,7 +171,7 @@ class WooCommerceController extends Controller
     $filename = storage_path("app/4-Unassigned-PRs.txt"); 
 
     for ($i = 1; $i < $n; $i++) {
-        $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
+        $url = env("BASE_URL") . $i;    
 
         $curl = curl_init($url);
 
