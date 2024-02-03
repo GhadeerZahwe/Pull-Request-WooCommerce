@@ -9,7 +9,8 @@ ini_set('max_execution_time', '300');
 class WooCommerceController extends Controller
 {
 
- 
+    
+
     public function get14DaysPullRequests()
     {
         $n = 2;
@@ -17,109 +18,49 @@ class WooCommerceController extends Controller
         $mytime = date("H:i:s");
         $formattedDate = $mydate . "T" . $mytime . "Z";
         $headers = [
-            "Accept:application/vnd.github+json",
+            "Accept:application/vnd.github+json", 
             "User-Agent: GhadeerZahwe",
             "authorization: Bearer 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"
         ];
-        $filename = "./1-old-pull-requests.txt";
-
-        $output = ''; // Initialize an empty string to store the file content
-
+        $filename = storage_path("app/1-old-pull-requests.txt");
         for ($i = 1; $i < $n; $i++) {
-
+    
             $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
-
-
-
+    
             $curl = curl_init($url);
-
-
+    
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
+    
             //for debug only!
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
             $resp = curl_exec($curl);
-
+    
             curl_close($curl);
-            $pull_requests = "";
             $pull_requests = json_decode($resp, false);
-
-            if (is_array($pull_requests)) { // Check if $pull_requests is an array
+            
+            if (!is_null($pull_requests)) {
                 foreach ($pull_requests as $pull_request) {
                     if ($pull_request->created_at < $formattedDate) {
-                        $output .= $pull_request->number . " " .$pull_request->title . " " . $pull_request->created_at . "\n";
+                        $output = $pull_request->number . " " .$pull_request->title . " " . $pull_request->created_at . "\n";
+                        // Append the output to the file
+                        file_put_contents($filename, $output, FILE_APPEND);
                     }
                 }
-            } else {
-                // Handle the case where $pull_requests is not an array (e.g., an error occurred during JSON decoding)
-                echo "Error fetching pull requests.\n";
-                return;
-            }
-
-            if (count($pull_requests) === 100) {
-                ++$n;
-            }
-        }
-
-        // Write the file content
-        file_put_contents($filename, $output);
-
-        // Prepare the JSON response
-        $response = [
-            'status' => 'success',
-            'file_link' => $filename,
-            'file_content' => $output, // Include the file content in the response
-        ];
-
-        // Return the JSON response
-        return response()->json($response, 200);
-    }
-
-
-    public function getRRPullRequests()
-    {
-        $n = 2;
-
-        $headers = [
-            "Accept:application/vnd.github+json", "User-Agent: GhadeerZahwe",
-            "authorization: Bearer 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"
-        ];
-        for ($i = 1; $i < $n; $i++) {
-
-            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
-
-
-
-            $curl = curl_init($url);
-
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-            //for debug only!
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            $resp = curl_exec($curl);
-
-            curl_close($curl);
-            $pull_requests = "";
-            $pull_requests = json_decode($resp, false);
-
-
-            for ($j = 0; $j < count($pull_requests); $j++) {
-                if ($pull_requests[$j]->requested_reviewers != [] || $pull_requests[$j]->requested_teams != []) {
-                    echo $pull_requests[$j]->number . " ". $pull_requests[$j]->title . " ". $pull_requests[$j]->created_at . "\n";
+        
+                if (count($pull_requests) === 100) {
+                    ++$n;
                 }
-            }
-            if (count($pull_requests) === 100) {
-                ++$n;
+            } else {
+                // Handle the case where $pull_requests is null
+                echo "Error fetching pull requests.\n";
             }
         }
+        echo "Done". $output;
     }
+    
 
  public function getSuccessPullRequests()
 {
