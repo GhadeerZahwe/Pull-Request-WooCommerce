@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+ini_set('max_execution_time', '300');
 
 class WooCommerceController extends Controller
 {
     public function getPullRequests()
     {
         // Increase the maximum execution time limit
-        set_time_limit(40);
-
-        for ($i = 1; $i <= 3; $i++) {
+        $n = 2;
+        $mydate = date("Y-m-d", strtotime("-2 week"));
+        $mytime = date("H:i:s");
+        $formattedDate = $mydate . "T" . $mytime . "Z";
+        for ($i = 1; $i < $n; $i++) {
             $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?per_page=100&page=" . $i;
             $headers = [
                 "Accept:application/vnd.github+json", 
@@ -29,13 +32,13 @@ class WooCommerceController extends Controller
 
             $pull_requests = json_decode($resp, false);
 
-            if (is_array($pull_requests)) {
-                foreach ($pull_requests as $pull_request) {
-                    echo $pull_request->url . "\n";
+            for ($j = 0; $j < count($pull_requests); $j++) {
+                if ($pull_requests[$j]->created_at < $formattedDate) {
+                    echo $pull_requests[$j]->created_at . "\n";
                 }
-                echo "Number of pull requests: " . count($pull_requests) . "\n";
-            } else {
-                echo "Error decoding JSON response.\n";
+            }
+            if (count($pull_requests) === 100) {
+                ++$n;
             }
         }
     }
