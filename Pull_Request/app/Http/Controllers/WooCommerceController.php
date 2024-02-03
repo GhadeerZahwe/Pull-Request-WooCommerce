@@ -175,46 +175,50 @@ class WooCommerceController extends Controller
     }
     
     public function getUnassignedPullRequests()
-    {
-        $headers = [
-            "Accept:application/vnd.github+json", "User-Agent: GhadeerZahwe",
-            "authorization: Bearer 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"
-        ];
-        $n = 2;
+{
+    $headers = [
+        "Accept:application/vnd.github+json",
+        "User-Agent: GhadeerZahwe",
+        "authorization: Bearer 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"
+    ];
+    $n = 2;
 
+    $filename = storage_path("app/4-Unassigned-PRs.txt"); // Define the filename
 
-        for ($i = 1; $i < $n; $i++) {
+    for ($i = 1; $i < $n; $i++) {
+        $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
 
-            $url = "https://api.github.com/repos/woocommerce/woocommerce/pulls?&per_page=100&page=" . $i;
+        $curl = curl_init($url);
 
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
+        // For debug only!
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $resp = curl_exec($curl);
 
-            $curl = curl_init($url);
+        curl_close($curl);
+        $pull_requests = json_decode($resp, false);
 
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-            //for debug only!
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            $resp = curl_exec($curl);
-
-            curl_close($curl);
-            $pull_requests = "";
-            $pull_requests = json_decode($resp, false);
-
-
-            for ($j = 0; $j < count($pull_requests); $j++) {
-                if ($pull_requests[$j]->requested_reviewers == [] && $pull_requests[$j]->requested_teams == []) {
-                    echo $pull_requests[$j]->number . " ". $pull_requests[$j]->title. " ". $pull_requests[$j]->created_at. "\n" ;
+        foreach ($pull_requests as $pull_request) {
+            if (empty($pull_request->requested_reviewers) && empty($pull_request->requested_teams)) {
+                // Format the output
+                $output = $pull_request->number . " " . $pull_request->title . " " . $pull_request->created_at . "\n";
                 
-                }
-            }
-            if (count($pull_requests) === 100) {
-                ++$n;
+                // Append the output to the file
+                file_put_contents($filename, $output, FILE_APPEND);
+                
             }
         }
+
+        if (count($pull_requests) === 100) {
+            ++$n;
+        }
     }
+    echo $output;
+
+}
+
 }
