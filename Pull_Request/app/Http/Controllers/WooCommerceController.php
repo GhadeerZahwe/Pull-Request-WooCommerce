@@ -17,17 +17,17 @@ class WooCommerceController extends Controller
         $formattedDate = $mydate . "T" . $mytime . "Z";
         $filename = storage_path("app/1-old-pull-requests.txt");
     
-        $github = new GitHubController(); // Instantiate GitHubController
+        $github = new GitHubController(); 
     
         for ($i = 1; $i < $n; $i++) {
-            list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
+            list($n, $pull_requests) = $github->urlCurl($i); 
             
             if (!is_null($pull_requests)) {
                 $output = '';
     
                 foreach ($pull_requests as $pr) {
                     if ($pr->created_at < $formattedDate) {
-                        $output .= $pr->number . " " .$pr->title . " " . $pr->html_url . "\n"; // Modify output format
+                        $output .= $pr->number . " " .$pr->title . " " . $pr->html_url . "\n"; 
                     }
                 }
     
@@ -45,10 +45,10 @@ class WooCommerceController extends Controller
         $n = 2;
         $filename = storage_path("app/2-review-required-pull-requests.txt");
     
-        $github = new GitHubController(); // Instantiate GitHubController
+        $github = new GitHubController(); 
     
         for ($i = 1; $i < $n; $i++) {
-            list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
+            list($n, $pull_requests) = $github->urlCurl($i); 
     
             if (!is_null($pull_requests)) {
                 $output = '';
@@ -78,7 +78,6 @@ class WooCommerceController extends Controller
         $n = 2;
     
         $filename = storage_path("app/3-Successful-PRs.txt");
-        $github = new GitHubController(); // Instantiate GitHubController
 
         for ($i = 1; $i < $n; $i++) {
             
@@ -160,6 +159,6 @@ class WooCommerceController extends Controller
     }
     echo "Done";
 
-}
+  }
 
 }
