@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class GitHubController extends Controller
 {
-    public function fetchPullRequests($url)
+   
+    public function urlCurl($i)
     {
         $n = 2;
         $headers = [
@@ -12,25 +15,23 @@ class GitHubController extends Controller
             "User-Agent: GhadeerZahwe",
             "authorization: Bearer " . env("TOKEN")
         ];
-        $pullRequests = [];
+        $url = env("BASE_URL") . $i;
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-        for ($i = 1; $i < $n; $i++) {
-            $fullUrl = $url . $i;
-            $curl = curl_init($fullUrl);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $resp = curl_exec($curl);
 
-            curl_setopt($curl, CURLOPT_URL, $fullUrl);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_close($curl);
+        $pull_requests = "";
+        $pull_requests = json_decode($resp, false);
 
-            $resp = curl_exec($curl);
-
-            curl_close($curl);
-
-            $pullRequests[] = json_decode($resp);
+        if (count($pull_requests) === 100) {
+            ++$n;
         }
-
-        return $pullRequests;
+        return [$n, $pull_requests];
     }
 }

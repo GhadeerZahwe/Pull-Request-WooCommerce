@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\GithubController;
 
 ini_set('max_execution_time', '300');
 
@@ -14,39 +15,23 @@ class WooCommerceController extends Controller
         $mydate = date("Y-m-d", strtotime("-2 week"));
         $mytime = date("H:i:s");
         $formattedDate = $mydate . "T" . $mytime . "Z";
-        $headers = [
-            "Accept:application/vnd.github+json", 
-            "User-Agent: GhadeerZahwe",
-            "authorization: Bearer " . env("TOKEN")
-        ];
         $filename = storage_path("app/1-old-pull-requests.txt");
+    
+        $github = new GitHubController(); // Instantiate GitHubController
+    
         for ($i = 1; $i < $n; $i++) {
-            
-            $url = env("BASE_URL") . $i;    
-            $curl = curl_init($url);
-    
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            $resp = curl_exec($curl);
-    
-            curl_close($curl);
-            $pull_requests = json_decode($resp, false);
+            list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
             
             if (!is_null($pull_requests)) {
-                foreach ($pull_requests as $pull_request) {
-                    if ($pull_request->created_at < $formattedDate) {
-                        $output = $pull_request->number . " " .$pull_request->title . " " . $pull_request->created_at . "\n";
-                        file_put_contents($filename, $output, FILE_APPEND);
+                $output = '';
+    
+                foreach ($pull_requests as $pr) {
+                    if ($pr->created_at < $formattedDate) {
+                        $output .= $pr->number . " " .$pr->title . " " . $pr->html_url . "\n"; // Modify output format
                     }
                 }
-        
-                if (count($pull_requests) === 100) {
-                    ++$n;
-                }
+    
+                file_put_contents($filename, $output, FILE_APPEND);
             } else {
                 echo "Error fetching pull requests.\n";
             }
@@ -54,46 +39,34 @@ class WooCommerceController extends Controller
         echo "Done";
     }
     
+    
     public function getRRPullRequests()
     {
         $n = 2;
-        $headers = [
-            "Accept:application/vnd.github+json", 
-            "User-Agent: GhadeerZahwe",
-            "authorization: Bearer " . env("TOKEN")
-        ];
         $filename = storage_path("app/2-review-required-pull-requests.txt");
-        
+    
+        $github = new GitHubController(); // Instantiate GitHubController
+    
         for ($i = 1; $i < $n; $i++) {
-            $url = env("BASE_URL") . $i;    
+            list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
     
-            $curl = curl_init($url);
+            if (!is_null($pull_requests)) {
+                $output = '';
     
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            $resp = curl_exec($curl);
-    
-            curl_close($curl);
-            $pull_requests = json_decode($resp, false);
-    
-            foreach ($pull_requests as $pull_request) {
-                if (!empty($pull_request->requested_reviewers) || !empty($pull_request->requested_teams)) {
-                    $output = $pull_request->number . " " . $pull_request->title . " " . $pull_request->created_at . "\n";
-                    file_put_contents($filename, $output, FILE_APPEND);
+                foreach ($pull_requests as $pr) {
+                    if (!empty($pr->requested_reviewers) || !empty($pr->requested_teams)) {
+                        $output .= $pr->number . " " . $pr->title . " " . $pr->created_at . "\n";
+                    }
                 }
-            }
     
-            if (count($pull_requests) === 100) {
-                ++$n;
+                file_put_contents($filename, $output, FILE_APPEND);
+            } else {
+                echo "Error fetching pull requests.\n";
             }
         }
         echo "Done";
-
     }
+    
     
     public function getSuccessPullRequests()
     {
@@ -105,7 +78,8 @@ class WooCommerceController extends Controller
         $n = 2;
     
         $filename = storage_path("app/3-Successful-PRs.txt");
-    
+        $github = new GitHubController(); // Instantiate GitHubController
+
         for ($i = 1; $i < $n; $i++) {
             
             $url = env("BASE_URL") . $i;    
@@ -161,30 +135,15 @@ class WooCommerceController extends Controller
     
     public function getUnassignedPullRequests()
 {
-    $headers = [
-        "Accept:application/vnd.github+json",
-        "User-Agent: GhadeerZahwe",
-        "authorization: Bearer " . env("TOKEN")
-    ];
+  
     $n = 2;
 
     $filename = storage_path("app/4-Unassigned-PRs.txt"); 
+    $github = new GitHubController(); // Instantiate GitHubController
 
     for ($i = 1; $i < $n; $i++) {
-        $url = env("BASE_URL") . $i;    
-
-        $curl = curl_init($url);
-
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        $resp = curl_exec($curl);
-
-        curl_close($curl);
-        $pull_requests = json_decode($resp, false);
+      
+        list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
 
         foreach ($pull_requests as $pull_request) {
             if (empty($pull_request->requested_reviewers) && empty($pull_request->requested_teams)) {
