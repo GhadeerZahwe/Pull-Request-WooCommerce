@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\GitHubController;
+use Revolution\Google\Sheets\Facades\Sheets;
+
 use SheetDB\SheetDB;
-use Sheets;
 ini_set('max_execution_time', '300');
 class WooCommerceController extends Controller
 {
+    
     
     public function getOldPullRequests()
     {
@@ -27,7 +29,7 @@ class WooCommerceController extends Controller
 
             for ($j = 0; $j < count($pull_requests); $j++) {
                 if ($pull_requests[$j]->created_at < $formattedDate) {
-                    $sheet->create(["PR number" => $pull_requests[$j]->number, "PR title" => $pull_requests[$j]->title, "PR URL" => $pull_requests[$j]->created_at]);
+                    $sheet->create(["PR number" => $pull_requests[$j]->number, "PR title" => $pull_requests[$j]->title, "Created_at" => $pull_requests[$j]->created_at]);
                     $output .= $pull_requests[$j]->number . " " . $pull_requests[$j]->title . " " . $pull_requests[$j]->created_at . "\n";
                 }
             }
@@ -42,6 +44,9 @@ class WooCommerceController extends Controller
             // "old_PRs" => $fileLink
         ], 200);
     }
+
+
+    
 
     public function getRRPullRequests()
     {

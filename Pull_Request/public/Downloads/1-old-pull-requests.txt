@@ -1,131 +1,132 @@
-43840 [Product Editor] Fix blank editor flash when loading product https://github.com/woocommerce/woocommerce/pull/43840
-43836 Add E2E tests for Additional Checkout Fields https://github.com/woocommerce/woocommerce/pull/43836
-43825 Product Collection: disable client side navigation if incompatible blocks https://github.com/woocommerce/woocommerce/pull/43825
-43823 [Experimental] Surface custom fields in My Account pages https://github.com/woocommerce/woocommerce/pull/43823
-43811 try: refactor StoreAPI/ProductQueryFilters https://github.com/woocommerce/woocommerce/pull/43811
-43805 SlotFill for variation actions follow-up https://github.com/woocommerce/woocommerce/pull/43805
-43788 fixed the broken link to settings-api https://github.com/woocommerce/woocommerce/pull/43788
-43786 Allow providing meta fields starting with "meta_data_" as regular fields on the REST API https://github.com/woocommerce/woocommerce/pull/43786
-43782 Add additional checkout fields documentation https://github.com/woocommerce/woocommerce/pull/43782
-43772 Refactor: replace QueryFilters by ProductQueryFiltersServiceProvider https://github.com/woocommerce/woocommerce/pull/43772
-43739 More defensive coding when using `$product->get_attributes()` https://github.com/woocommerce/woocommerce/pull/43739
-43729 41798-improve-update-product-stock-query-performance https://github.com/woocommerce/woocommerce/pull/43729
-43725 Product Editor: Subsection block https://github.com/woocommerce/woocommerce/pull/43725
-43696 Add aria-label to My Account Navigation Item https://github.com/woocommerce/woocommerce/pull/43696
-43571 Docs: migrate Template structure & Overriding templates via a theme https://github.com/woocommerce/woocommerce/pull/43571
-43535 adding context to UX documentation https://github.com/woocommerce/woocommerce/pull/43535
-43515 Add Filter Hook in OrdersScheduler.php for Customizing WooCommerce Analytics Data https://github.com/woocommerce/woocommerce/pull/43515
-43502 Add the Receipts Rendering Engine https://github.com/woocommerce/woocommerce/pull/43502
-43498 Experimental: Add Mini Cart as an ALLOWED_BLOCK for core Navigation https://github.com/woocommerce/woocommerce/pull/43498
-43494 Update @wordpress/components, core-data and React to 18 https://github.com/woocommerce/woocommerce/pull/43494
-43488 Fix typo in the Exposing your data in the Store API documentation https://github.com/woocommerce/woocommerce/pull/43488
-43433 WooCommerce Asset Build Aliases https://github.com/woocommerce/woocommerce/pull/43433
-43432 No need of nofollow if now purchasable or not in store https://github.com/woocommerce/woocommerce/pull/43432
-43418 Testing CI https://github.com/woocommerce/woocommerce/pull/43418
-43369 resolved issue 42040 overlapping problem https://github.com/woocommerce/woocommerce/pull/43369
-43267 Block Hooks API: Add CustomerAccount block to header https://github.com/woocommerce/woocommerce/pull/43267
-43247 Include the selected collection in the product collection block context https://github.com/woocommerce/woocommerce/pull/43247
-43233 Apply Rector suggestions for PHP 8.1 https://github.com/woocommerce/woocommerce/pull/43233
-43223 Bump tj-actions/changed-files from 37 to 41 in /.github/workflows https://github.com/woocommerce/woocommerce/pull/43223
-43186 Fix/optional label in variation details https://github.com/woocommerce/woocommerce/pull/43186
-43137 [Product Block Editor]: add updateByKey to the useProductMetadata() hook https://github.com/woocommerce/woocommerce/pull/43137
-43115 [Product Block Editor]: sort the blocks list in the index file https://github.com/woocommerce/woocommerce/pull/43115
-43096 Fix is_read value in Admin notes https://github.com/woocommerce/woocommerce/pull/43096
-43077 Investigation: Use Promptfoo to evaluate IA results https://github.com/woocommerce/woocommerce/pull/43077
-43011 Fix for product meta lookup table incorrectly marking a product as onsale Closes #43008 https://github.com/woocommerce/woocommerce/pull/43011
-42988 Fix - Express payments that have errors cause the whole block to stop working https://github.com/woocommerce/woocommerce/pull/42988
-42896 admin.scss, Images within "variable product" in a square aspect ratio… https://github.com/woocommerce/woocommerce/pull/42896
-42891 Bump octokit from 2.1.0 to 3.1.2 https://github.com/woocommerce/woocommerce/pull/42891
-42827 Fix the current order billing or shipping country not being available for edit if that country is no longer allowed https://github.com/woocommerce/woocommerce/pull/42827
-42815 Bump simple-git from 3.5.0 to 3.16.0 in /tools/compare-perf https://github.com/woocommerce/woocommerce/pull/42815
-42808 Make the structured data price of group products refer to the latest child product price https://github.com/woocommerce/woocommerce/pull/42808
-41982 Bump fast-xml-parser from 4.2.4 to 4.2.5 https://github.com/woocommerce/woocommerce/pull/41982
-41973 Bump fast-xml-parser from 4.2.4 to 4.2.5 in /plugins/woocommerce-blocks https://github.com/woocommerce/woocommerce/pull/41973
-41972 Bump axios from 0.27.2 to 1.6.0 in /plugins/woocommerce-blocks https://github.com/woocommerce/woocommerce/pull/41972
-41890 Add new hook: woocommerce_before_cart_totals_table https://github.com/woocommerce/woocommerce/pull/41890
-41881 New woocommerce_cart_totals_after_table action https://github.com/woocommerce/woocommerce/pull/41881
-41877 [POC] Some bits showcasing an unified code, REST and GraphQL API https://github.com/woocommerce/woocommerce/pull/41877
-41855 Update extension-developer-handbook.md to include changelog file details https://github.com/woocommerce/woocommerce/pull/41855
-41850 Update payment-gateway-api.md https://github.com/woocommerce/woocommerce/pull/41850
-41769 Update states.php -> Add Morocco regions https://github.com/woocommerce/woocommerce/pull/41769
-41762 My Subscriptions feature flag https://github.com/woocommerce/woocommerce/pull/41762
-41716 Revert loading strategy for checkout.js to `in_footer` https://github.com/woocommerce/woocommerce/pull/41716
-41705 Bump axios to 1.6.0 https://github.com/woocommerce/woocommerce/pull/41705
-41694 Update/new editor downloads section view file https://github.com/woocommerce/woocommerce/pull/41694
-41671 Tio borracho shipping methods https://github.com/woocommerce/woocommerce/pull/41671
-41622 Update extension-developer-handbook.md https://github.com/woocommerce/woocommerce/pull/41622
-41604 In-App Marketplace: record page views at the end of the `useEffect` hook https://github.com/woocommerce/woocommerce/pull/41604
-41601 Create a new Playwright project for new product experience https://github.com/woocommerce/woocommerce/pull/41601
-41567 Remove deprecated calls in class-wc-checkout.php https://github.com/woocommerce/woocommerce/pull/41567
-41551 Store Customization > Update the position for patterns on templates two and three https://github.com/woocommerce/woocommerce/pull/41551
-41411  Add a filter `woocommerce_admin_terms_metabox_datalimit` to change the data-limit value for the attributes term box  https://github.com/woocommerce/woocommerce/pull/41411
-41360 Bump axios from 0.24.0 to 1.6.0 https://github.com/woocommerce/woocommerce/pull/41360
-41346 Dev Tools: View template and template events https://github.com/woocommerce/woocommerce/pull/41346
-41253 Apply Rector suggestions for PHP 8.1 https://github.com/woocommerce/woocommerce/pull/41253
-41215 Woo AI - Add a changelog.txt file for automation. https://github.com/woocommerce/woocommerce/pull/41215
-41132 Wip/test pr review ping https://github.com/woocommerce/woocommerce/pull/41132
-41128 Bump react-devtools-core from 4.24.0 to 4.28.5 https://github.com/woocommerce/woocommerce/pull/41128
-41105 Add Plugin Check workflow https://github.com/woocommerce/woocommerce/pull/41105
-41089 Filter an importing row. https://github.com/woocommerce/woocommerce/pull/41089
-41059 Add/jetpack jwt library https://github.com/woocommerce/woocommerce/pull/41059
-41041 $item_name filtering @ order admin items table https://github.com/woocommerce/woocommerce/pull/41041
-41004 E2e/playwright tests en es ar temp https://github.com/woocommerce/woocommerce/pull/41004
-40998 Fix coupon codes containing apostrophes https://github.com/woocommerce/woocommerce/pull/40998
-40899 Fix typos. https://github.com/woocommerce/woocommerce/pull/40899
-40877 Address possible performance regression with new defer strategy https://github.com/woocommerce/woocommerce/pull/40877
-40848 Fire action if order line item has been restored https://github.com/woocommerce/woocommerce/pull/40848
-40801 Wc 8.2.0 static analysis fixes https://github.com/woocommerce/woocommerce/pull/40801
-40792 [PoC] Create a dialog block https://github.com/woocommerce/woocommerce/pull/40792
-40787 Add new 2019 Algerian states https://github.com/woocommerce/woocommerce/pull/40787
-40784 Add package and composer dependencies https://github.com/woocommerce/woocommerce/pull/40784
-40760 WIP: Image replacement https://github.com/woocommerce/woocommerce/pull/40760
-40750 Add override loop template code snippet https://github.com/woocommerce/woocommerce/pull/40750
-40734 Add woocommerce_widget_layered_nav_term_anchor_text filter https://github.com/woocommerce/woocommerce/pull/40734
-40721 Use async loading strategy for woo-tracks script https://github.com/woocommerce/woocommerce/pull/40721
-40676 Add multiple images to a product variation https://github.com/woocommerce/woocommerce/pull/40676
-40627 Replace the Legacy REST API with a stub that always returns an error https://github.com/woocommerce/woocommerce/pull/40627
-40614 Added default stock amount filter and function https://github.com/woocommerce/woocommerce/pull/40614
-40574 Bump postcss from 8.4.12 to 8.4.31 https://github.com/woocommerce/woocommerce/pull/40574
-40491 updateFragments performance issue fix https://github.com/woocommerce/woocommerce/pull/40491
-40395 fix fatal string to array conversion error in get_full_size_image_dim… https://github.com/woocommerce/woocommerce/pull/40395
-40365 [PoC] Entity snapshots engine https://github.com/woocommerce/woocommerce/pull/40365
-40357 Bump graphql from 16.6.0 to 16.8.1 https://github.com/woocommerce/woocommerce/pull/40357
-40254 Check for empty value in get_order_id_by_order_key() https://github.com/woocommerce/woocommerce/pull/40254
-40243 Replace pink with WooCommerce purple in reports and ratings https://github.com/woocommerce/woocommerce/pull/40243
-40179 Try: Share blocks across templates https://github.com/woocommerce/woocommerce/pull/40179
-40106 Fix breadcrumb back icon color to follow the admin theme color https://github.com/woocommerce/woocommerce/pull/40106
-40095 [E2E test coverage]: Create variable product https://github.com/woocommerce/woocommerce/pull/40095
-40077 POC: Add contextual block and block component wrapper https://github.com/woocommerce/woocommerce/pull/40077
-40038 Remove duplicate entries from changelog.txt https://github.com/woocommerce/woocommerce/pull/40038
-40025 Make `Link type="external"` use `@worpress/components.ExternalLink` https://github.com/woocommerce/woocommerce/pull/40025
-40002 [Do Not Merge] Jetpack Sync Spike https://github.com/woocommerce/woocommerce/pull/40002
-39978 Bump webpack from 5.70.0 to 5.76.0 https://github.com/woocommerce/woocommerce/pull/39978
-39977 Bump simple-git from 3.14.0 to 3.16.0 https://github.com/woocommerce/woocommerce/pull/39977
-39965 Update readme.md https://github.com/woocommerce/woocommerce/pull/39965
-39941 POC: Add plugin integration scripts https://github.com/woocommerce/woocommerce/pull/39941
-39924 Docs: Fix Typos & Grammatical Errors #37502 https://github.com/woocommerce/woocommerce/pull/39924
-39867 Only run cherry-pick tool when base-ref is trunk https://github.com/woocommerce/woocommerce/pull/39867
-39852 Use ternary instead of null coalescing operator to prevent PHP 8.1 deprecation notice https://github.com/woocommerce/woocommerce/pull/39852
-39635 Update/default payments gateways recommendations https://github.com/woocommerce/woocommerce/pull/39635
-39601 Ensure menu order does not have duplicated WC-related items https://github.com/woocommerce/woocommerce/pull/39601
-39461 Try: Allow conditional blocks to match context properties https://github.com/woocommerce/woocommerce/pull/39461
-39401 Fix sprintf for updated linked orders message https://github.com/woocommerce/woocommerce/pull/39401
-39379 Try to create table and set option when changing sync setting. https://github.com/woocommerce/woocommerce/pull/39379
-39326 Add utility for getting versions for a given date https://github.com/woocommerce/woocommerce/pull/39326
-39312 Handle experiment tests using transient-based api https://github.com/woocommerce/woocommerce/pull/39312
-39284 Fix invalid typehints and remove unnecessary reference and cast https://github.com/woocommerce/woocommerce/pull/39284
-39200 [Woo AI] - Improve Description Generation with Product Title + Keyword guess https://github.com/woocommerce/woocommerce/pull/39200
-39091 Fix analytics taxes list https://github.com/woocommerce/woocommerce/pull/39091
-39029 Add woocommerce_is_cart filter hook https://github.com/woocommerce/woocommerce/pull/39029
-38968 Add missing data-id for Terms field error on Checkout https://github.com/woocommerce/woocommerce/pull/38968
-38787 OBW: Recommend Jetpack CRM during onboarding https://github.com/woocommerce/woocommerce/pull/38787
-38718 [POC] Attribute-based REST API skeleton for WooCommerce https://github.com/woocommerce/woocommerce/pull/38718
-38600 Fix email report download link https://github.com/woocommerce/woocommerce/pull/38600
-38570 Orders: Changed modified date when a line item is changed https://github.com/woocommerce/woocommerce/pull/38570
-38498 Add `woocommerce_order_note_deleted` hook for a successful order note… https://github.com/woocommerce/woocommerce/pull/38498
-38455 Compatibilize HPOS order query arguments with non-HPOS https://github.com/woocommerce/woocommerce/pull/38455
-38400 E2e/playwright tests en es ar https://github.com/woocommerce/woocommerce/pull/38400
-38364 Update experimental select control to use dropdown hooks and improve extensibility https://github.com/woocommerce/woocommerce/pull/38364
-38352 Refactor product variation ajax calls https://github.com/woocommerce/woocommerce/pull/38352
-38330 Update route on product publish https://github.com/woocommerce/woocommerce/pull/38330
-38291 Add compatibility with CPT's search result filters in HPOS. https://github.com/woocommerce/woocommerce/pull/38291
+43840 [Product Editor] Fix blank editor flash when loading product 2024-01-21T05:00:51Z
+43836 Add E2E tests for Additional Checkout Fields 2024-01-19T22:26:37Z
+43825 Product Collection: disable client side navigation if incompatible blocks 2024-01-19T16:43:58Z
+43823 [Experimental] Surface custom fields in My Account pages 2024-01-19T15:12:53Z
+43811 try: refactor StoreAPI/ProductQueryFilters 2024-01-19T09:44:40Z
+43805 SlotFill for variation actions follow-up 2024-01-19T06:45:36Z
+43788 fixed the broken link to settings-api 2024-01-18T13:41:11Z
+43786 Allow providing meta fields starting with "meta_data_" as regular fields on the REST API 2024-01-18T13:24:15Z
+43782 Add additional checkout fields documentation 2024-01-18T12:30:35Z
+43772 Refactor: replace QueryFilters by ProductQueryFiltersServiceProvider 2024-01-18T09:52:08Z
+43739 More defensive coding when using `$product->get_attributes()` 2024-01-17T11:36:47Z
+43729 41798-improve-update-product-stock-query-performance 2024-01-17T08:26:33Z
+43725 Product Editor: Subsection block 2024-01-17T05:18:46Z
+43696 Add aria-label to My Account Navigation Item 2024-01-16T13:36:42Z
+43571 Docs: migrate Template structure & Overriding templates via a theme 2024-01-12T16:45:42Z
+43535 adding context to UX documentation 2024-01-11T19:55:17Z
+43515 Add Filter Hook in OrdersScheduler.php for Customizing WooCommerce Analytics Data 2024-01-11T14:16:39Z
+43502 Add the Receipts Rendering Engine 2024-01-11T11:18:35Z
+43498 Experimental: Add Mini Cart as an ALLOWED_BLOCK for core Navigation 2024-01-11T09:28:16Z
+43494 Update @wordpress/components, core-data and React to 18 2024-01-11T06:52:28Z
+43488 Fix typo in the Exposing your data in the Store API documentation 2024-01-10T20:43:30Z
+43433 WooCommerce Asset Build Aliases 2024-01-09T19:12:40Z
+43432 No need of nofollow if now purchasable or not in store 2024-01-09T18:50:02Z
+43418 Testing CI 2024-01-09T13:54:07Z
+43369 resolved issue 42040 overlapping problem 2024-01-08T15:57:55Z
+43267 Block Hooks API: Add CustomerAccount block to header 2024-01-04T10:18:09Z
+43247 Include the selected collection in the product collection block context 2024-01-03T12:02:55Z
+43233 Apply Rector suggestions for PHP 8.1 2024-01-03T01:45:22Z
+43223 Bump tj-actions/changed-files from 37 to 41 in /.github/workflows 2024-01-02T16:53:17Z
+43186 Fix/optional label in variation details 2023-12-30T17:44:12Z
+43137 [Product Block Editor]: add updateByKey to the useProductMetadata() hook 2023-12-27T16:34:06Z
+43115 [Product Block Editor]: sort the blocks list in the index file 2023-12-26T13:57:20Z
+43096 Fix is_read value in Admin notes 2023-12-22T22:26:37Z
+43077 Investigation: Use Promptfoo to evaluate IA results 2023-12-22T11:56:06Z
+43011 Fix for product meta lookup table incorrectly marking a product as onsale Closes #43008 2023-12-20T19:20:56Z
+42988 Fix - Express payments that have errors cause the whole block to stop working 2023-12-20T11:54:51Z
+42896 admin.scss, Images within "variable product" in a square aspect ratio… 2023-12-18T07:22:17Z
+42891 Bump octokit from 2.1.0 to 3.1.2 2023-12-16T01:06:06Z
+42827 Fix the current order billing or shipping country not being available for edit if that country is no longer allowed 2023-12-14T15:07:06Z
+42815 Bump simple-git from 3.5.0 to 3.16.0 in /tools/compare-perf 2023-12-14T11:22:44Z
+42808 Make the structured data price of group products refer to the latest child product price 2023-12-14T06:31:45Z
+41982 Bump fast-xml-parser from 4.2.4 to 4.2.5 2023-12-09T13:35:14Z
+41973 Bump fast-xml-parser from 4.2.4 to 4.2.5 in /plugins/woocommerce-blocks 2023-12-09T05:49:50Z
+41972 Bump axios from 0.27.2 to 1.6.0 in /plugins/woocommerce-blocks 2023-12-09T05:49:49Z
+41890 Add new hook: woocommerce_before_cart_totals_table 2023-12-05T17:06:29Z
+41881 New woocommerce_cart_totals_after_table action 2023-12-05T14:36:39Z
+41877 [POC] Some bits showcasing an unified code, REST and GraphQL API 2023-12-05T11:36:45Z
+41855 Update extension-developer-handbook.md to include changelog file details 2023-12-04T12:31:33Z
+41850 Update payment-gateway-api.md 2023-12-02T20:38:04Z
+41769 Update states.php -> Add Morocco regions 2023-11-29T00:39:29Z
+41762 My Subscriptions feature flag 2023-11-28T17:47:04Z
+41716 Revert loading strategy for checkout.js to `in_footer` 2023-11-27T19:55:02Z
+41705 Bump axios to 1.6.0 2023-11-27T15:07:06Z
+41694 Update/new editor downloads section view file 2023-11-26T17:51:33Z
+41671 Tio borracho shipping methods 2023-11-24T10:58:16Z
+41622 Update extension-developer-handbook.md 2023-11-21T23:08:00Z
+41604 In-App Marketplace: record page views at the end of the `useEffect` hook 2023-11-21T14:36:24Z
+41601 Create a new Playwright project for new product experience 2023-11-21T12:52:28Z
+41567 Remove deprecated calls in class-wc-checkout.php 2023-11-19T21:11:57Z
+41551 Store Customization > Update the position for patterns on templates two and three 2023-11-17T18:08:35Z
+41411  Add a filter `woocommerce_admin_terms_metabox_datalimit` to change the data-limit value for the attributes term box  2023-11-13T20:54:04Z
+41360 Bump axios from 0.24.0 to 1.6.0 2023-11-10T10:57:38Z
+41346 Dev Tools: View template and template events 2023-11-09T21:50:42Z
+41253 Apply Rector suggestions for PHP 8.1 2023-11-06T20:37:44Z
+41215 Woo AI - Add a changelog.txt file for automation. 2023-11-03T14:05:29Z
+41132 Wip/test pr review ping 2023-10-31T11:44:17Z
+41128 Bump react-devtools-core from 4.24.0 to 4.28.5 2023-10-31T09:16:51Z
+41105 Add Plugin Check workflow 2023-10-30T20:31:24Z
+41089 Filter an importing row. 2023-10-30T10:50:55Z
+41059 Add/jetpack jwt library 2023-10-27T10:16:12Z
+41041 $item_name filtering @ order admin items table 2023-10-26T08:27:48Z
+41004 E2e/playwright tests en es ar temp 2023-10-25T17:37:34Z
+40998 Fix coupon codes containing apostrophes 2023-10-25T15:01:29Z
+40899 Fix typos. 2023-10-20T12:25:29Z
+40877 Address possible performance regression with new defer strategy 2023-10-19T16:17:39Z
+40848 Fire action if order line item has been restored 2023-10-18T14:30:58Z
+40801 Wc 8.2.0 static analysis fixes 2023-10-16T17:39:01Z
+40792 [PoC] Create a dialog block 2023-10-16T12:46:57Z
+40787 Add new 2019 Algerian states 2023-10-14T11:49:22Z
+40784 Add package and composer dependencies 2023-10-13T20:09:15Z
+40760 WIP: Image replacement 2023-10-13T13:52:58Z
+40750 Add override loop template code snippet 2023-10-13T09:37:18Z
+40734 Add woocommerce_widget_layered_nav_term_anchor_text filter 2023-10-12T18:26:08Z
+40721 Use async loading strategy for woo-tracks script 2023-10-11T20:50:14Z
+40676 Add multiple images to a product variation 2023-10-10T18:19:29Z
+40627 Replace the Legacy REST API with a stub that always returns an error 2023-10-06T07:01:31Z
+40614 Added default stock amount filter and function 2023-10-05T08:56:13Z
+40574 Bump postcss from 8.4.12 to 8.4.31 2023-10-03T18:38:27Z
+40491 updateFragments performance issue fix 2023-09-28T14:50:42Z
+40395 fix fatal string to array conversion error in get_full_size_image_dim… 2023-09-25T13:35:44Z
+40365 [PoC] Entity snapshots engine 2023-09-22T09:07:32Z
+40357 Bump graphql from 16.6.0 to 16.8.1 2023-09-21T18:41:35Z
+40254 Check for empty value in get_order_id_by_order_key() 2023-09-18T17:32:04Z
+40243 Replace pink with WooCommerce purple in reports and ratings 2023-09-18T10:04:04Z
+40179 Try: Share blocks across templates 2023-09-14T17:58:26Z
+40106 Fix breadcrumb back icon color to follow the admin theme color 2023-09-11T09:12:23Z
+40095 [E2E test coverage]: Create variable product 2023-09-08T18:19:58Z
+40077 POC: Add contextual block and block component wrapper 2023-09-07T21:13:37Z
+40038 Remove duplicate entries from changelog.txt 2023-09-05T08:48:25Z
+40025 Make `Link type="external"` use `@worpress/components.ExternalLink` 2023-09-04T19:18:04Z
+40002 [Do Not Merge] Jetpack Sync Spike 2023-09-01T12:22:03Z
+39978 Bump webpack from 5.70.0 to 5.76.0 2023-08-30T21:45:54Z
+39977 Bump simple-git from 3.14.0 to 3.16.0 2023-08-30T21:45:38Z
+39965 Update readme.md 2023-08-30T15:30:26Z
+39941 POC: Add plugin integration scripts 2023-08-28T21:44:43Z
+39924 Docs: Fix Typos & Grammatical Errors #37502 2023-08-26T06:17:57Z
+39867 Only run cherry-pick tool when base-ref is trunk 2023-08-23T13:16:30Z
+39852 Use ternary instead of null coalescing operator to prevent PHP 8.1 deprecation notice 2023-08-22T16:12:41Z
+39635 Update/default payments gateways recommendations 2023-08-09T08:09:21Z
+39601 Ensure menu order does not have duplicated WC-related items 2023-08-06T18:08:10Z
+39461 Try: Allow conditional blocks to match context properties 2023-07-27T17:15:36Z
+39401 Fix sprintf for updated linked orders message 2023-07-25T09:07:23Z
+39379 Try to create table and set option when changing sync setting. 2023-07-24T12:37:54Z
+39326 Add utility for getting versions for a given date 2023-07-19T20:26:56Z
+39312 Handle experiment tests using transient-based api 2023-07-19T13:31:01Z
+39284 Fix invalid typehints and remove unnecessary reference and cast 2023-07-17T22:17:23Z
+39200 [Woo AI] - Improve Description Generation with Product Title + Keyword guess 2023-07-12T11:38:18Z
+39091 Fix analytics taxes list 2023-07-04T17:01:43Z
+39029 Add woocommerce_is_cart filter hook 2023-06-29T17:23:07Z
+38968 Add missing data-id for Terms field error on Checkout 2023-06-27T15:03:22Z
+38787 OBW: Recommend Jetpack CRM during onboarding 2023-06-18T17:38:51Z
+38718 [POC] Attribute-based REST API skeleton for WooCommerce 2023-06-14T13:24:33Z
+38600 Fix email report download link 2023-06-04T01:00:14Z
+38570 Orders: Changed modified date when a line item is changed 2023-06-01T22:21:39Z
+38498 Add `woocommerce_order_note_deleted` hook for a successful order note… 2023-05-27T08:37:50Z
+38455 Compatibilize HPOS order query arguments with non-HPOS 2023-05-25T14:45:14Z
+38400 E2e/playwright tests en es ar 2023-05-22T16:22:18Z
+38364 Update experimental select control to use dropdown hooks and improve extensibility 2023-05-19T16:10:24Z
+38352 Refactor product variation ajax calls 2023-05-18T17:40:53Z
+38330 Update route on product publish 2023-05-17T06:00:10Z
+38291 Add compatibility with CPT's search result filters in HPOS. 2023-05-15T07:25:40Z
+38201 Fix Admin\API\Reports\Customers\DataStore::anonymize_customer tries t… 2023-05-10T12:05:36Z
