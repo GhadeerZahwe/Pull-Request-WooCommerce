@@ -4,49 +4,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\GitHubController;
-use Revolution\Google\Sheets\Facades\Sheets;
 
-use SheetDB\SheetDB;
 ini_set('max_execution_time', '300');
 class WooCommerceController extends Controller
 {
-    
-    
     public function getOldPullRequests()
     {
-        $sheet = new SheetDB(env("SHEET_API_KEY"), "Old PRs");
-        $n = 2;
-        $mydate = date("Y-m-d", strtotime("-2 week"));
-        $mytime = date("H:i:s");
-        $formattedDate = $mydate . "T" . $mytime . "Z";
-        $github = new GithubController();
-        $fileLink = "";
-        $filename = "./Downloads/1-old-pull-requests.txt";
-        $output = "";
-        for ($i = 1; $i < $n; $i++) {
+        try {
+            $n = 2;
+            $mydate = date("Y-m-d", strtotime("-2 week"));
+            $mytime = date("H:i:s");
+            $formattedDate = $mydate . "T" . $mytime . "Z";
+            $filename = storage_path("app/1-old-pull-requests.txt");
 
-            $pull_requests = $github->urlCurl($i)[1];
+            $github = new GitHubController();
 
-            for ($j = 0; $j < count($pull_requests); $j++) {
-                if ($pull_requests[$j]->created_at < $formattedDate) {
-                    $sheet->create(["PR number" => $pull_requests[$j]->number, "PR title" => $pull_requests[$j]->title, "Created_at" => $pull_requests[$j]->created_at]);
-                    $output .= $pull_requests[$j]->number . " " . $pull_requests[$j]->title . " " . $pull_requests[$j]->created_at . "\n";
+            for ($i = 1; $i < $n; $i++) {
+                list($n, $pull_requests) = $github->urlCurl($i);
+
+                if (!is_null($pull_requests)) {
+                    $output = '';
+
+                    foreach ($pull_requests as $pr) {
+                        if ($pr->created_at < $formattedDate) {
+                            $output .= $pr->number . " " . $pr->title . " " . $pr->created_at . "\n";
+                        }
+                    }
+
+                    file_put_contents($filename, $output, FILE_APPEND);
+                } else {
+                    throw new \Exception("Error fetching pull requests.");
                 }
             }
-            $n = $github->urlCurl($i)[0];
+            echo "Done";
+        } catch (\Exception $e) {
+            echo "Error: " . $e->getMessage();
         }
-
-        file_put_contents($filename, $output);
-        $rawLink = explode("./", $filename)[1];
-        // $fileLink .= env("DOWNLOADS_URL") . $rawLink;
-        return response()->json([
-            "status" => "success",
-            // "old_PRs" => $fileLink
-        ], 200);
     }
-
-
-    
 
     public function getRRPullRequests()
     {
