@@ -145,11 +145,11 @@ class WooCommerceController extends Controller
             $n = 2;
 
             $filename = storage_path("app/4-Unassigned-PRs.txt");
-            $github = new GitHubController(); // Instantiate GitHubController
+            $github = new GitHubController(); 
 
             for ($i = 1; $i < $n; $i++) {
 
-                list($n, $pull_requests) = $github->urlCurl($i); // Call urlCurl method
+                list($n, $pull_requests) = $github->urlCurl($i); 
 
                 foreach ($pull_requests as $pull_request) {
                     if (empty($pull_request->requested_reviewers) && empty($pull_request->requested_teams)) {
